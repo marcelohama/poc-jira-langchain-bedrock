@@ -12,7 +12,7 @@ In the following, you can find the Step-to-Step to deploy.
 4. [AWS] Connect to the created RDS and run the SQL commands available at /sql/database_dump.sql;
 5. [AWS] Configure the Security Group attached to the RDS to allow traffic from different VPCs. To do so, configure the source of both inbound/outbound rules of the attached VPC to be 0.0.0.0/0 at least for port 3306. If this step is not properlly configured, your Lambda will not be able to connect to Bedrock later;
 6. [AWS] Configure an AWS Bedrock FM, to use Claude Sonnet 4.6;
-7. [AWS] Create an AWS Lambda Python, and upload the /aws/lambda_function.zip package as its code;
+7. [AWS] Create an AWS Lambda Python, and upload the content in /aws/lambda_function as a zip package, as the Lambda code;
 8. [AWS] Adjust environment and credentials in your Lambda code (JIRA token, database credentials, etc);
 9. [AWS] Configure a FunctionURL to your Lambda, so it can be triggered by URL;
 10. [JIRA] Setup a JIRA webhook, to be triggered when you create a JIRA card: https://<YOUR_SITE>.atlassian.net/plugins/servlet/webhooks;

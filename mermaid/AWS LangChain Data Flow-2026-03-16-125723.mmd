@@ -1,0 +1,22 @@
+flowchart LR
+ subgraph subGraph0["Client Interface"]
+        J["Jira Cloud / Service Management"]
+  end
+ subgraph subGraph1["Agent Runtime"]
+        LC["Lambda Python"]
+  end
+ subgraph subGraph2["Tools & References"]
+       AT["RDS"]
+  end
+ subgraph subGraph3["Reasoning"]
+        B["Amazon Bedrock LLM"]
+        LN["LN2SQL Tool"]
+  end
+    J -- [1] Webhook (New Ticket) --> LC
+    LC -- [2], [3], e [4] Prompt --> B
+    B -- [5] Query Executável --> LC
+    LC -- [6] SQL Query --> AT
+    AT -- [6] Query Result --> LC
+    LC -- [7] API Key (Resultados) --> J
+    B -- [5] Intenção de Busca --> LN
+    LN -- [5] SQL Query --> B
